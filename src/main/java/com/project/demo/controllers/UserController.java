@@ -12,7 +12,7 @@ import java.util.Optional;
 public class UserController {
 
     /*Controller icerisine UserRepository bilgilerini getiriyoruz. Asagida kullanacagiz.*/
-    //Control
+    //Control02
     private UserRepository userRepository;
 
     public UserController(UserRepository userRepository){
