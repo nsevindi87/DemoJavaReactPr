@@ -12,6 +12,6 @@ public class Post {
     Long userId;
     String title;
     @Lob
-    @Column
+    @Column(columnDefinition = "text")
     String text;
 }
