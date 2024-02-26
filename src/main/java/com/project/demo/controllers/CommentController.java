@@ -2,7 +2,7 @@ package com.project.demo.controllers;
 
 import com.project.demo.entities.Comment;
 import com.project.demo.requests.CommentCreateRequest;
-import com.project.demo.requests.CommentService;
+import com.project.demo.services.CommentService;
 import com.project.demo.requests.CommentUpdateRequest;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,5 +37,10 @@ public class CommentController {
     @PutMapping("/{commentId}")
     public  Comment updateOneComment(@PathVariable Long commentId, @RequestBody CommentUpdateRequest request){
         return commentService.updateOneCommentById(commentId, request);
+    }
+
+    @DeleteMapping("/{commentId}")
+    public void deleteOneComment(@PathVariable Long commentId){
+        commentService.deleteOneCommentById(commentId);
     }
 }

@@ -1,9 +1,11 @@
-package com.project.demo.requests;
+package com.project.demo.services;
 
 import com.project.demo.entities.Comment;
 import com.project.demo.entities.Post;
 import com.project.demo.entities.User;
 import com.project.demo.repos.CommentRepository;
+import com.project.demo.requests.CommentCreateRequest;
+import com.project.demo.requests.CommentUpdateRequest;
 import com.project.demo.services.PostService;
 import com.project.demo.services.UserService;
 import org.springframework.stereotype.Service;
@@ -60,5 +62,9 @@ public class CommentService {
             return commentRepository.save(commentToUpdate);
         }else
             return  null;
+    }
+
+    public void deleteOneCommentById(Long commentId) {
+        commentRepository.deleteById((commentId));
     }
 }
