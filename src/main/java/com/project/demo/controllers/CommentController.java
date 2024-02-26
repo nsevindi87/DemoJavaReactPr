@@ -1,7 +1,9 @@
 package com.project.demo.controllers;
 
 import com.project.demo.entities.Comment;
+import com.project.demo.requests.CommentCreateRequest;
 import com.project.demo.requests.CommentService;
+import com.project.demo.requests.CommentUpdateRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,10 +25,17 @@ public class CommentController {
     }
 
     @PostMapping
-    public Comment createOneComment(@RequestBody)
+    public Comment createOneComment(@RequestBody CommentCreateRequest request){
+        return commentService.createOneComment(request);
+    }
 
     @GetMapping("/{commentId}")
     public Comment getOneComment(@PathVariable Long commentId){
         return  commentService.getOneCommentById(commentId);
+    }
+
+    @PutMapping("/{commentId}")
+    public  Comment updateOneComment(@PathVariable Long commentId, @RequestBody CommentUpdateRequest request){
+        return commentService.updateOneCommentById(commentId, request);
     }
 }
