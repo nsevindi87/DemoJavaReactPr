@@ -2,6 +2,7 @@ package com.project.demo.controllers;
 
 import com.project.demo.entities.Post;
 import com.project.demo.requests.PostCreateRequest;
+import com.project.demo.requests.PostUpdateRequest;
 import com.project.demo.services.PostService;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +31,15 @@ public class PostController {
     @GetMapping("/{postId}")
     public Post getOnePost(@PathVariable Long postId){
         return postService.getOnePostById(postId);
+    }
+
+    @PutMapping("/{postId}")
+    public Post updateOnePost(@PathVariable Long postId, @RequestBody PostUpdateRequest updatePost){
+        return postService.updateOnePostById(postId,updatePost);
+    }
+
+    @DeleteMapping("/{postId}")
+    public void deleteOnePost (@PathVariable Long postId){
+        postService.deleteOnePostById(postId);
     }
 }
